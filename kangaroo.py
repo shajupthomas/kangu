@@ -14,17 +14,20 @@ from bitcoinlib.keys import Key  # 🚀 Added for WIF conversion
 
 ###############################################################################
 # 📌 TELEGRAM BOT CONFIGURATION
-TELEGRAM_BOT_TOKEN = "7550247477:AAHS1TgQ3GSvUqTdSFJZWm3klpdr-tyK0KM"  # Replace with your bot token
-TELEGRAM_CHAT_ID = "892100588"  # Replace with your Telegram chat ID
+TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
+TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
 
 def send_telegram_message(message):
     """
     Sends a message to your Telegram chat.
     """
+    if not TELEGRAM_BOT_TOKEN or not TELEGRAM_CHAT_ID:
+        return
+
     url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
     payload = {"chat_id": TELEGRAM_CHAT_ID, "text": message}
     try:
-        requests.post(url, json=payload)
+        requests.post(url, json=payload, timeout=10)
     except Exception as e:
         print(f"Telegram Error: {e}")
 
