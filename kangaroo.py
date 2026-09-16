@@ -14,7 +14,7 @@ from bitcoinlib.keys import Key  # 🚀 Added for WIF conversion
 
 ###############################################################################
 # 📌 TELEGRAM BOT CONFIGURATION
-TELEGRAM_BOT_TOKEN = "7550247477:AAHS1TgQ3GSvUqTdSFJZWm3klpdr-tyK0KM"  # Replace with your bot token
+TELEGRAM_BOT_TOKEN = "8679246064:AAEcDr4aemgxylyR-N28iloU0t2T4UGFvaw"  # Replace with your bot token
 TELEGRAM_CHAT_ID = "892100588"  # Replace with your Telegram chat ID
 
 def send_telegram_message(message):
